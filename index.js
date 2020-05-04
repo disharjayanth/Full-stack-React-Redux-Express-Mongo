@@ -5,6 +5,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Survey')
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI,  { useNewUrlParser: true, useUnifiedTopology: true });
@@ -22,6 +23,7 @@ app.use(passport.session());
 
 require('./routes/authRoutes')(app);
 require('./routes/billingRoutes')(app);
+require('./routes/surveyRoutes')(app)
 
 if(process.env.NODE_ENV === 'production') {    //FOLLOWING CODE EXECUTES IN ORDER IF ROUTE DOESNT FIND FILE IN 1ST ROUTE THEN IT GOES TO 2ND IE. app.get('*')
   //Express will serve up production assets like main.js or main.css for any route like *ANY* other than billing and auth route

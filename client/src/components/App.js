@@ -5,10 +5,8 @@ import * as actions from '../actions'
 
 import Header from './Header'
 import Landing from './Landing'
-
-const Dashboard = () => {
-    return <h1>Surveys</h1>
-}
+import Dashboard from './Dashboard'
+import SurveyNew from './Surveys/SurveyNew'
 
 class App extends Component {
     componentDidMount() {
@@ -17,16 +15,14 @@ class App extends Component {
 
     render() {
         return(
-            <div className="container">
                 <BrowserRouter>
-                <div>
+                <div className="container">
                     <Header />
                     <Route exact path='/' component={Landing} />
                     <Route exact path='/surveys' component={Dashboard} />
-                    {/* <Route path='/surverys/new' component={SurveyNew} /> */}
+                    <Route path='/surveys/new' component={SurveyNew} />
                 </div>
                 </BrowserRouter>
-            </div>
         )
     }
 }
