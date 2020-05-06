@@ -26,5 +26,5 @@ class SurveyNew extends Component {
 }
 
 export default reduxForm({
-    form: 'surveyForm'
+    form: 'surveyForm' //by default DesstoryOnUnmount will be false
 })(SurveyNew)
